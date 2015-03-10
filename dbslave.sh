@@ -2,7 +2,7 @@
 
 # Usage
 # Login as root
-# ./provision.sh local_mysql_password
+# ./provision.sh local_mysql_password localdb_name
 
 # Update
 apt-get update
@@ -19,4 +19,4 @@ printf '\n%s' 'log-slave-updates = 1' >> /etc/mysql/my.cnf
 
 service mysql restart
 
-mysql -u root -p$1 -e 'CREATE DATABASE performapp';
+mysql -u root -p$1 -e "CREATE DATABASE $2";
